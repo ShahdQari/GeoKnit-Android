@@ -35,5 +35,6 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_map">Map</string>
+    <string name="identify_your_symptoms">symptoms</string>
 
 </resources>

@@ -6,15 +6,38 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class test extends AppCompatActivity {
 
+    private CheckBox fever , cough , tired, pain
+            , congestion,headache , conjunctivitis ,
+            sore_throat , diarrhea , loss , rash , change;
+
+    private Button Accept ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
+
+        fever = findViewById(R.id.fever);
+        cough = findViewById(R.id.cough);
+        tired = findViewById(R.id.tired);
+        pain = findViewById(R.id.pain);
+        congestion = findViewById(R.id.congestion);
+        headache = findViewById(R.id.headache);
+        conjunctivitis = findViewById(R.id.conjunctivitis);
+        sore_throat = findViewById(R.id.sore_throat);
+        diarrhea = findViewById(R.id.diarrhea);
+        loss = findViewById(R.id.loss);
+        rash = findViewById(R.id.rash);
+        change = findViewById(R.id.change);
+        Accept = findViewById(R.id.Accept);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.NavigationView);
         bottomNavigationView.setSelectedItemId(R.id.test);
@@ -42,6 +65,32 @@ public class test extends AppCompatActivity {
                         return true;
                 }
                 return false;
+            }
+        });
+
+        Accept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(fever.isChecked() && cough.isChecked() && tired.isChecked()){
+                    if (pain.isChecked() || congestion.isChecked() || headache.isChecked()
+                            ||conjunctivitis.isChecked() || sore_throat.isChecked()
+                            || diarrhea.isChecked() || loss.isChecked()
+                            || rash.isChecked() || change.isChecked()){
+
+                    }
+
+                }
+                else if(fever.isChecked() || cough.isChecked() || tired.isChecked()){
+                    if (pain.isChecked() || congestion.isChecked() || headache.isChecked()
+                            ||conjunctivitis.isChecked() || sore_throat.isChecked()
+                            || diarrhea.isChecked() || loss.isChecked()
+                            || rash.isChecked() || change.isChecked()){
+
+                    }
+                }
+                else{
+
+                }
             }
         });
     }
