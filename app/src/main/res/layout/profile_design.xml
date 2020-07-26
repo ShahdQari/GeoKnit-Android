@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -18,54 +17,87 @@
         app:itemTextColor="@drawable/selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.619"
         app:menu="@menu/buttom_mnue"
         tools:ignore="MissingConstraints" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="294dp"
-        android:layout_height="443dp"
-        android:layout_margin="5dp"
-        android:orientation="vertical"
-        android:padding="5dp"
-        android:paddingLeft="5dp"
-        android:paddingTop="5dp"
-        android:paddingRight="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="227dp"
+        android:layout_height="159dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="10dp"
+        android:contentDescription="@string/todo"
+        app:layout_constraintBottom_toTopOf="@+id/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        app:srcCompat="?android:attr/activatedBackgroundIndicator"
+        tools:ignore="MissingConstraints" />
 
-        <ImageView
-            android:id="@+id/photo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:contentDescription="@string/todo"
-            app:srcCompat="?android:attr/activatedBackgroundIndicator" />
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="216dp"
+        android:layout_height="38dp"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginRight="110dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:text="@string/textview"
+        app:layout_constraintBottom_toTopOf="@+id/email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photo"
+        tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="177dp"
-            android:layout_height="34dp"
-            android:layout_gravity="center"
-            android:layout_margin="15dp"
-            android:gravity="center"
-            android:text="@string/textview" />
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="216dp"
+        android:layout_height="38dp"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginRight="110dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="@string/textview"
+        app:layout_constraintBottom_toTopOf="@+id/test"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:id="@+id/email"
-            android:layout_width="216dp"
-            android:layout_height="38dp"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            android:gravity="center"
-            android:text="@string/textview" />
+    <TextView
+        android:id="@+id/test"
+        android:layout_width="216dp"
+        android:layout_height="38dp"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginRight="110dp"
+        android:layout_marginBottom="196dp"
+        android:gravity="center"
+        android:text="@string/textview"
+        app:layout_constraintBottom_toTopOf="@+id/NavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        tools:ignore="MissingConstraints" />
 
-    </LinearLayout>
- </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

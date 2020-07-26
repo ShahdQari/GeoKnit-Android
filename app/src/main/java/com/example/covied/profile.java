@@ -22,8 +22,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class profile extends AppCompatActivity {
-    private TextView nameTV, emailTV;
+    private TextView nameTV, emailTV , test;
     private ImageView photoIV;
+    String test1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +44,9 @@ public class profile extends AppCompatActivity {
             emailTV.setText("Email: " + personEmail);
             Glide.with(this).load(personPhoto).into(photoIV);
         }
+
+
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.NavigationView);
         bottomNavigationView.setSelectedItemId(R.id.profile);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

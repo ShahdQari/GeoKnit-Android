@@ -9,17 +9,24 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
 
 
 
     <application
         android:allowBackup="true"
-        android:label="@string/app_name"
+        android:label="GeoKnit"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".hospital"></activity>
-        <activity android:name=".permit" />
-        <activity android:name=".map" />
+        <activity android:name=".hospital"
+            android:label="hospital"></activity>
+        <activity android:name=".permit"
+            android:label="permit"/>
+        <activity android:name=".map"
+            android:label="map"/>
+        <activity android:name=".accept_permit"
+            android:label="accept permit"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -32,7 +39,8 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".test" />
+        <activity android:name=".test"
+            android:label="test"/>
 
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
@@ -45,7 +53,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".profile" />
+        <activity android:name=".profile"
+            android:label="profile"/>
     </application>
 
 </manifest>
