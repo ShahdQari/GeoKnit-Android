@@ -12,7 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@drawable/notifications" />
+        android:src="@drawable/notifications"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/notification_badge"
@@ -28,6 +29,6 @@
         android:textColor="@android:color/white"
         android:text="0"
         android:textSize="10sp"
-        tools:ignore="RtlCompat" />
+        tools:ignore="HardcodedText,RtlCompat,RtlHardcoded,SmallSp" />
 
 </FrameLayout>

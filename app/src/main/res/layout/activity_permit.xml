@@ -114,7 +114,9 @@
         app:layout_constraintBottom_toTopOf="@+id/Accept"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTime3" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTime3"
+        android:autofillHints=""
+        tools:ignore="LabelFor,TextFields" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

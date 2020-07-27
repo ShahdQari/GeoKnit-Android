@@ -65,5 +65,6 @@ public class map extends FragmentActivity implements OnMapReadyCallback {
         map.addMarker(new MarkerOptions().position(makkah).title("Home"));
         map.moveCamera(CameraUpdateFactory.newLatLng(makkah));
 
+
     }
 }
