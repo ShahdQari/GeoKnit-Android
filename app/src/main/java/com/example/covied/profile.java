@@ -24,7 +24,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class profile extends AppCompatActivity {
     private TextView nameTV, emailTV , test;
     private ImageView photoIV;
-    String test1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +33,13 @@ public class profile extends AppCompatActivity {
         nameTV = (TextView) findViewById(R.id.name);
         emailTV = (TextView) findViewById(R.id.email);
         photoIV = (ImageView) findViewById(R.id.photo);
+        test = (TextView) findViewById(R.id.test12);
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null)
+        {
+            test.setText("case: "+ bundle.getString("case"));
+        }
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if (acct != null) {

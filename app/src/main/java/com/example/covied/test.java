@@ -3,13 +3,15 @@ package com.example.covied;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -22,11 +24,6 @@ public class test extends AppCompatActivity {
             sore_throat , diarrhea , loss , rash , change;
 
     private Button Accept ;
-
-    private TextView check1;
-    private LinearLayout test12;
-    private RelativeLayout check;
-    String test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +43,6 @@ public class test extends AppCompatActivity {
         rash = findViewById(R.id.rash);
         change = findViewById(R.id.change);
         Accept = findViewById(R.id.Accept);
-        check = findViewById(R.id.check);
-        test12 = findViewById(R.id.test12);
-        test12.removeView(check);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.NavigationView);
         bottomNavigationView.setSelectedItemId(R.id.test);
@@ -79,7 +73,7 @@ public class test extends AppCompatActivity {
             }
         });
 
-        //final Intent intent = new Intent(test.this , profile.class);
+
         Accept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,8 +82,7 @@ public class test extends AppCompatActivity {
                             ||conjunctivitis.isChecked() || sore_throat.isChecked()
                             || diarrhea.isChecked() || loss.isChecked()
                             || rash.isChecked() || change.isChecked()){
-                        test12.addView(check);
-                        check1.setText("yes");
+                        alert("you are infected" , "yes");
                     }
 
                 }
@@ -98,15 +91,32 @@ public class test extends AppCompatActivity {
                             ||conjunctivitis.isChecked() || sore_throat.isChecked()
                             || diarrhea.isChecked() || loss.isChecked()
                             || rash.isChecked() || change.isChecked()){
-                        test12.addView(check);
-                        check1.setText("maybe");
+                        alert("you may be infected" , "Maybe");
                     }
                 }
                 else{
-                    test12.addView(check);
-                    check1.setText("No");
+                    alert("you are not infected" , "No");
                 }
             }
         });
+    }
+
+    public void alert(final String Message , final String ca){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(test.this);
+        builder.setTitle("test result");
+        builder.setMessage(Message);
+        builder.setCancelable(true);
+        builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent = new Intent(test.this , profile.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("case", ca);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }

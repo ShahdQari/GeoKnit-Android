@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/test12"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".test">
@@ -11,7 +12,6 @@
         android:layout_height="608dp">
 
         <LinearLayout
-            android:id="@+id/test12"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -24,7 +24,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="56dp"
                 android:text="@string/identify_your_symptoms"
-                android:textSize="30sp"/>
+                android:textSize="30sp" />
 
             <CheckBox
                 android:id="@+id/fever"
@@ -158,21 +158,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/buttom_mnue"
-        tools:ignore="MissingConstraints" >
+        tools:ignore="MissingConstraints">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <RelativeLayout
         android:id="@+id/check"
-        android:layout_width="369dp"
-        android:layout_height="197dp"
+        android:layout_width="221dp"
+        android:layout_height="141dp"
         android:layout_centerInParent="true"
         android:gravity="center">
 
         <TextView
             android:id="@+id/check1"
             android:layout_width="150dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center" />
     </RelativeLayout>
 
 </RelativeLayout>
