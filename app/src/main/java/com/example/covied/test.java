@@ -94,7 +94,10 @@ public class test extends AppCompatActivity {
                         alert("you may be infected" , "Maybe");
                     }
                 }
-                else{
+                else if (pain.isChecked() || congestion.isChecked() || headache.isChecked()
+                        ||conjunctivitis.isChecked() || sore_throat.isChecked()
+                        || diarrhea.isChecked() || loss.isChecked()
+                        || rash.isChecked() || change.isChecked()){
                     alert("you are not infected" , "No");
                 }
             }

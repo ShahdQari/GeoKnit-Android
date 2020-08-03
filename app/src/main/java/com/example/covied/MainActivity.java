@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
         //Initializing Views
         signInButton = (Button) findViewById(R.id.Signin);
-        login = (Button) findViewById(R.id.login);
-        signin = (Button) findViewById(R.id.signin);
+        //login = (Button) findViewById(R.id.login);
+        //signin = (Button) findViewById(R.id.signin);
 
 
 

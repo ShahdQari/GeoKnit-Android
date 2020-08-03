@@ -41,6 +41,8 @@ public class profile extends AppCompatActivity {
             test.setText("case: "+ bundle.getString("case"));
         }
 
+
+
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if (acct != null) {
             String personName = acct.getDisplayName();

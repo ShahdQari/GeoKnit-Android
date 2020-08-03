@@ -5,11 +5,13 @@
     android:id="@+id/test12"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".test">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="608dp">
+        android:layout_height="608dp"
+        android:background="#FFFFFF">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,6 +26,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="56dp"
                 android:text="@string/identify_your_symptoms"
+                android:textColor="#000000"
                 android:textSize="30sp" />
 
             <CheckBox
@@ -32,6 +35,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:text="Do you have a high fever?"
+                android:textColor="#673AB7"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -41,6 +45,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:text="Do you have a dry cough?"
+                android:textColor="#673AB7"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -50,6 +55,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:text="Do you feel tired?"
+                android:textColor="#673AB7"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -59,6 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Do you feel pains and aches?"
+                android:textColor="#673AB7"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -68,6 +75,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:text="Do you have a nasel congestion?"
+                android:textColor="#673AB7"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -77,6 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Do you have a headache?"
+                android:textColor="#673AB7"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -86,6 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Do you have conjunctivitis?"
+                android:textColor="#673AB7"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -95,6 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Do you have a sore throat?"
+                android:textColor="#673AB7"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -104,6 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Do you have diarrhea?"
+                android:textColor="#673AB7"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -113,6 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Do you have a loss of smell or taste?"
+                android:textColor="#673AB7"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -122,6 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Do you have a rash?"
+                android:textColor="#673AB7"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -131,6 +145,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Has the color of the toes or hands changed?"
+                android:textColor="#673AB7"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -139,8 +154,11 @@
                 android:layout_width="120dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
+                android:background="@android:color/white"
                 android:gravity="center"
                 android:text="Accept"
+                android:textColor="#673AB7"
+                android:textStyle="bold"
                 tools:ignore="HardcodedText" />
 
         </LinearLayout>
@@ -162,19 +180,5 @@
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-    <RelativeLayout
-        android:id="@+id/check"
-        android:layout_width="221dp"
-        android:layout_height="141dp"
-        android:layout_centerInParent="true"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/check1"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:gravity="center" />
-    </RelativeLayout>
 
 </RelativeLayout>
