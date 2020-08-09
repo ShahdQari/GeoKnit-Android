@@ -3,7 +3,6 @@ package com.example.covied;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
@@ -37,12 +36,15 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
-public class map extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnPolylineClickListener,
-        GoogleMap.OnPolygonClickListener, LocationListener, GoogleApiClient.ConnectionCallbacks,
+public class map extends FragmentActivity implements OnMapReadyCallback,
+        GoogleMap.OnPolylineClickListener,
+        GoogleMap.OnPolygonClickListener,
+        LocationListener,
+        GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener{
 
 
-    GoogleMap googleMap;
+    private GoogleMap mMap;
     Location mLastLocation;
     Marker mCurrLocationMarker;
     GoogleApiClient mGoogleApiClient;
@@ -90,68 +92,58 @@ public class map extends AppCompatActivity implements OnMapReadyCallback, Google
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        googleMap = googleMap;
-        LatLng makkah = new LatLng(21.3709817 , 39.7932463);
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(makkah));
-        Bundle bundle = getIntent().getExtras();
-
-        Polygon polygon = googleMap.addPolygon(new PolygonOptions()
-                .add(
-                        new LatLng(21.36887192, 39.80334971),
-                        new LatLng(21.3587692, 39.80183488),
-                        new LatLng(21.35494637, 39.80247013),
-                        new LatLng(21.35267083, 39.8022258),
-                        new LatLng(21.35034974, 39.80090643),
-                        new LatLng(21.34884784, 39.79885408),
-                        new LatLng(21.34789208, 39.79489598),
-                        new LatLng(21.34793759, 39.78717523),
-                        new LatLng(21.34884784, 39.78409671),
-                        new LatLng(21.35071383, 39.78307053),
-                        new LatLng(21.35144202, 39.78121364),
-                        new LatLng(21.35171509, 39.77657142),
-                        new LatLng(21.35480984, 39.77422588),
-                        new LatLng(21.35926981, 39.77261332),
-                        new LatLng(21.36286498, 39.77124508),
-                        new LatLng(21.36696065, 39.76982798),
-                        new LatLng(21.37128373, 39.77574071),
-                        new LatLng(21.37478761, 39.78145797),
-                        new LatLng(21.37542467, 39.78531834),
-                        new LatLng(21.37597071, 39.79362548),
-                        new LatLng(21.37897395, 39.79518917),
-                        new LatLng(21.37920146, 39.79821883),
-                        new LatLng(21.37883744, 39.80325197),
-                        new LatLng(21.37860992, 39.80496227),
-                        new LatLng(21.37228485, 39.80369176),
-                        new LatLng(21.36896294, 39.80330084))
-                .fillColor(0x33FF0000)
-                .strokeColor(Color.RED)
-                .strokeWidth(1));
-
-        if (makkah.latitude < 21.34789207 || makkah.latitude > 21.37920147
-                ||makkah.longitude < 39.76982797 || makkah.longitude > 39.80496228) {
-            alert(makkah.toString());
-        }
+        mMap = googleMap;
+            mMap.addPolygon(new PolygonOptions()
+                    .add(
+                            new LatLng(21.36887192, 39.80334971),
+                            new LatLng(21.3587692, 39.80183488),
+                            new LatLng(21.35494637, 39.80247013),
+                            new LatLng(21.35267083, 39.8022258),
+                            new LatLng(21.35034974, 39.80090643),
+                            new LatLng(21.34884784, 39.79885408),
+                            new LatLng(21.34789208, 39.79489598),
+                            new LatLng(21.34793759, 39.78717523),
+                            new LatLng(21.34884784, 39.78409671),
+                            new LatLng(21.35071383, 39.78307053),
+                            new LatLng(21.35144202, 39.78121364),
+                            new LatLng(21.35171509, 39.77657142),
+                            new LatLng(21.35480984, 39.77422588),
+                            new LatLng(21.35926981, 39.77261332),
+                            new LatLng(21.36286498, 39.77124508),
+                            new LatLng(21.36696065, 39.76982798),
+                            new LatLng(21.37128373, 39.77574071),
+                            new LatLng(21.37478761, 39.78145797),
+                            new LatLng(21.37542467, 39.78531834),
+                            new LatLng(21.37597071, 39.79362548),
+                            new LatLng(21.37897395, 39.79518917),
+                            new LatLng(21.37920146, 39.79821883),
+                            new LatLng(21.37883744, 39.80325197),
+                            new LatLng(21.37860992, 39.80496227),
+                            new LatLng(21.37228485, 39.80369176),
+                            new LatLng(21.36896294, 39.80330084))
+                    .fillColor(0x33FF0000)
+                    .strokeColor(Color.RED)
+                    .strokeWidth(1));
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(this,
                     Manifest.permission.ACCESS_FINE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED) {
                 buildGoogleApiClient();
-                googleMap.setMyLocationEnabled(true);
+                mMap.setMyLocationEnabled(true);
             }
         }
         else {
             buildGoogleApiClient();
-            googleMap.setMyLocationEnabled(true);
+            mMap.setMyLocationEnabled(true);
         }
+
 
         // Position the map's camera near Alice Springs in the center of Australia,
         // and set the zoom factor so most of Australia shows on the screen.
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(21.3709817, 39.7932463), 12));
         // Set listeners for click events.
-        googleMap.setOnPolylineClickListener(this);
-        googleMap.setOnPolygonClickListener(this);
-
+        mMap.setOnPolylineClickListener(this);
+        mMap.setOnPolygonClickListener(this);
 
     }
 
@@ -190,8 +182,16 @@ public class map extends AppCompatActivity implements OnMapReadyCallback, Google
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
+       mLocationRequest = new LocationRequest();
+        mLocationRequest.setInterval(1000);
+        mLocationRequest.setFastestInterval(1000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
 
-
+        }
     }
 
     @Override
@@ -210,17 +210,22 @@ public class map extends AppCompatActivity implements OnMapReadyCallback, Google
         if (mCurrLocationMarker != null) {
             mCurrLocationMarker.remove();
         }
-        //Place current location marker
+        //Place current location marker.
+
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(latLng);
-        markerOptions.title("Current Position");
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
-        mCurrLocationMarker = googleMap.addMarker(markerOptions);
+        mCurrLocationMarker = mMap.addMarker(new MarkerOptions()
+                .position(latLng)
+                .title("Current Position")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
 
         //move map camera
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        googleMap.animateCamera(CameraUpdateFactory.zoomTo(11));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(12));
+
+        if (latLng.latitude < 21.34789207 || latLng.latitude > 21.37920147
+                ||latLng.longitude < 39.76982797 || latLng.longitude > 39.80496228) {
+            alert(latLng.toString());
+        }
 
         //stop location updates
         if (mGoogleApiClient != null) {

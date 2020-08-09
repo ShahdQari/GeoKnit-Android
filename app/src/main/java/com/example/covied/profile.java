@@ -36,6 +36,7 @@ public class profile extends AppCompatActivity {
         test = (TextView) findViewById(R.id.test12);
 
         Bundle bundle = getIntent().getExtras();
+
         if (bundle != null)
         {
             test.setText("case: "+ bundle.getString("case"));

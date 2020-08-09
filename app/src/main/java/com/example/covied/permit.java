@@ -36,7 +36,6 @@ public class permit extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener dateSetListener;
     int T1Hour , T1Minute , T2Hour , T2Minute;
     Bundle bundle;
-    int pendingSMSCount = 10;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -117,14 +116,14 @@ public class permit extends AppCompatActivity {
         Accept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    String describtion1 = description.getText().toString();
+                    String description1 = description.getText().toString();
                     String Time0 = Time1.getText().toString();
                     String Time00 = Time2.getText().toString();
                     String displayDate1 = displayDate.getText().toString();
                     bundle.putString("Date", displayDate1);
                     bundle.putString("Time from", Time0);
                     bundle.putString("Time to", Time00);
-                    bundle.putString("describtion", describtion1);
+                    bundle.putString("description", description1);
                     Intent intent = new Intent(permit.this , accept_permit.class);
                     intent.putExtras(bundle);
                     startActivity(intent);
