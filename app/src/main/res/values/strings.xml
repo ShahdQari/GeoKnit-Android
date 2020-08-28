@@ -44,5 +44,13 @@
     <string name="notifications">not</string>
     <string name="_12">12</string>
     <string name="description">description</string>
+    <string name="persone">persone</string>
+    <string name="discover_new_devices">Discover New Devices</string>
+    <string name="bluetooth_on">Bluetooth ON</string>
+    <string name="visble">Visble</string>
+    <string name="enable">Enable</string>
+    <string name="my_bt_name">My bt name</string>
+    <string name="Visible">Visible</string>
+    <string name="GeoKnit">GeoKnit</string>
 
 </resources>

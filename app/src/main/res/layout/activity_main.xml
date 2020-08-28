@@ -25,10 +25,11 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
-            android:background="@android:color/white"
+            android:background="@drawable/badge"
             android:baselineAligned="false"
+            android:fontFamily="sans-serif-black"
             android:text="@string/sign_in_by_google"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@android:color/holo_green_dark"
             android:textSize="14sp" />
 
     </LinearLayout>

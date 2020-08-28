@@ -1,5 +1,6 @@
 package com.example.covied;
 
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -11,7 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class accept_permit extends AppCompatActivity {
@@ -68,5 +71,14 @@ public class accept_permit extends AppCompatActivity {
         arrayList.add(all);
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,arrayList);
         listView.setAdapter(arrayAdapter);
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm aa");
+        Date date = new Date(System.currentTimeMillis());
+        simpleDateFormat.format(date);
+        if(Time00.equals(simpleDateFormat)){
+            arrayList.remove(all);
+            arrayAdapter.notifyDataSetChanged();
+        }
+
     }
 }

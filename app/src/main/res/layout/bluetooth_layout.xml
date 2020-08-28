@@ -4,27 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@android:color/white"
+    tools:context=".bluetooth">
 
-    <ListView
-        android:id="@+id/permit_ac"
-        android:layout_width="345dp"
-        android:layout_height="494dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="37dp"
-        android:layout_marginLeft="37dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="37dp"
-        android:layout_marginRight="37dp"
-        android:layout_marginBottom="80dp"
-        android:background="@android:color/white"
+
+    <CheckBox
+        android:id="@+id/Enable"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginLeft="59dp"
+        android:layout_marginEnd="232dp"
+        android:layout_marginRight="232dp"
+        android:text="@string/enable"
         android:textColor="@android:color/holo_green_dark"
-        app:layout_constraintBottom_toTopOf="@+id/NavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="54dp" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/NavigationView"
@@ -42,4 +39,19 @@
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
+    <ListView
+        android:id="@+id/devicesListView"
+        android:layout_width="296dp"
+        android:layout_height="421dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginRight="33dp"
+        android:textColor="@android:color/holo_green_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Enable"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

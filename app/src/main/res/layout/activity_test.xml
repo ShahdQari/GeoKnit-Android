@@ -9,8 +9,8 @@
     tools:context=".test">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="608dp"
+        android:layout_width="400dp"
+        android:layout_height="663dp"
         android:background="#FFFFFF">
 
         <LinearLayout
@@ -35,7 +35,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:text="Do you have a high fever?"
-                android:textColor="#673AB7"
+                android:textColor="@android:color/holo_green_dark"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -45,7 +45,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:text="Do you have a dry cough?"
-                android:textColor="#673AB7"
+                android:textColor="@android:color/holo_green_dark"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -55,7 +55,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:text="Do you feel tired?"
-                android:textColor="#673AB7"
+                android:textColor="@android:color/holo_green_dark"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Do you feel pains and aches?"
-                android:textColor="#673AB7"
+                android:textColor="@android:color/holo_green_dark"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -75,7 +75,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:text="Do you have a nasel congestion?"
-                android:textColor="#673AB7"
+                android:textColor="@android:color/holo_green_dark"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Do you have a headache?"
-                android:textColor="#673AB7"
+                android:textColor="@android:color/holo_green_dark"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Do you have conjunctivitis?"
-                android:textColor="#673AB7"
+                android:textColor="@android:color/holo_green_dark"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -105,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Do you have a sore throat?"
-                android:textColor="#673AB7"
+                android:textColor="@android:color/holo_green_dark"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -115,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Do you have diarrhea?"
-                android:textColor="#673AB7"
+                android:textColor="@android:color/holo_green_dark"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -125,7 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Do you have a loss of smell or taste?"
-                android:textColor="#673AB7"
+                android:textColor="@android:color/holo_green_dark"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -135,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Do you have a rash?"
-                android:textColor="#673AB7"
+                android:textColor="@android:color/holo_green_dark"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -145,7 +145,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Has the color of the toes or hands changed?"
-                android:textColor="#673AB7"
+                android:textColor="@android:color/holo_green_dark"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -154,10 +154,10 @@
                 android:layout_width="120dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:background="@android:color/white"
+                android:background="@drawable/badge"
                 android:gravity="center"
                 android:text="Accept"
-                android:textColor="#673AB7"
+                android:textColor="@android:color/holo_green_dark"
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
 
@@ -169,7 +169,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:itemBackground="@color/colorPrimary"
+        app:itemBackground="@android:color/holo_green_dark"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
         app:layout_constraintBottom_toBottomOf="parent"
