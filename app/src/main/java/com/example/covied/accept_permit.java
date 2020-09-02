@@ -2,6 +2,7 @@ package com.example.covied;
 
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -20,6 +21,8 @@ import java.util.Date;
 public class accept_permit extends AppCompatActivity {
     ListView listView;
     Bundle bundle;
+    ArrayList<String> arrayList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,18 +70,9 @@ public class accept_permit extends AppCompatActivity {
         String all = ("Date: " + displayDate1 + "\nTime from: " + Time0 +
                 "\tTime to: " + Time00 + "\ndescription: " + description);
 
-        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList = new ArrayList<>();
         arrayList.add(all);
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,arrayList);
         listView.setAdapter(arrayAdapter);
-
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm aa");
-        Date date = new Date(System.currentTimeMillis());
-        simpleDateFormat.format(date);
-        if(Time00.equals(simpleDateFormat)){
-            arrayList.remove(all);
-            arrayAdapter.notifyDataSetChanged();
-        }
-
     }
 }

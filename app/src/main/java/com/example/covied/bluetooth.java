@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +25,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,6 +33,7 @@ import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -40,6 +43,7 @@ public class bluetooth extends AppCompatActivity implements Serializable {
     private ListView devicesListView;
     private BluetoothAdapter bluetoothAdapter;
     private ArrayAdapter<String> arrayAdapter;
+    private TextView bt ;
 
 
     @Override
@@ -79,9 +83,10 @@ public class bluetooth extends AppCompatActivity implements Serializable {
         });
 
         Enable = findViewById(R.id.Enable);
-        devicesListView = findViewById(R.id.devicesListView);
+        //devicesListView = findViewById(R.id.devicesListView);
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(new Date());
+        bt = findViewById(R.id.bt);
+        bt.setText(readfile(filename));
 
 
         if (bluetoothAdapter == null) {
@@ -89,7 +94,7 @@ public class bluetooth extends AppCompatActivity implements Serializable {
             finish();
         }
         if (bluetoothAdapter.isEnabled()) {
-            Enable.setChecked(true);
+           Enable.setChecked(true);
         }
 
 
@@ -107,32 +112,26 @@ public class bluetooth extends AppCompatActivity implements Serializable {
             }
         });
 
-
         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
         registerReceiver(mReceiver, filter);
         bluetoothAdapter.startDiscovery();
 
+
+
     }
+
 
     BluetoothDevice device;
     BroadcastReceiver mReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-
             //Finding devices
-            if (BluetoothDevice.ACTION_FOUND.equals(action)) {
-                // Get the BluetoothDevice object from the Intent
-                device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                try {
-                    FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVATE);
-                    ObjectOutputStream oos = new ObjectOutputStream(fos);
-                    oos.writeUTF(device.getAddress());
-                    oos.writeUTF(currentDateTimeString);
-                    oos.close();
-                } catch (IOException e) {
-                    Log.e("Exception", "File write failed: " + e.toString());
+                if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+                    // Get the BluetoothDevice object from the Intent
+                    device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 }
-            }
+                currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(new Date());
+                saveConnectionState(device + "\n" + currentDateTimeString + "\n\n");
         }
     };
 
@@ -140,23 +139,48 @@ public class bluetooth extends AppCompatActivity implements Serializable {
     public static final String filename = "bt.txt";
 
     String currentDateTimeString;
+    ArrayList<String> lines = new ArrayList<String>();
 
-    public void loadConnectionState(Context cxt) throws IOException {
+    public  void saveConnectionState(String text){
+        try {
+            FileOutputStream fos = openFileOutput(filename , Context.MODE_PRIVATE);
+            fos.write(text.getBytes());
+        }catch (IOException e) {
+        e.printStackTrace();
+
+            }
+        }
+
+
+    /*public void loadConnectionState(Context cxt) throws IOException {
         FileInputStream fis = cxt.getApplicationContext().openFileInput(filename);
         ObjectInputStream ois = new ObjectInputStream(fis);
-
         String line;
-        ArrayList<String> lines = new ArrayList<String>();
+
         while ((line = ois.readUTF()) != null) {
             lines.add(line);
         }
-            ois.close();
+        bt.setText(lines);
+        //arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, lines);
+        //devicesListView.setAdapter(arrayAdapter);
+        ois.close();
 
-            arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, lines);
-            devicesListView.setAdapter(arrayAdapter);
+    }*/
 
-
-
+    public String readfile(String file){
+        String text = "";
+        try {
+            FileInputStream fis = openFileInput(file);
+            int size = fis.available();
+            byte[] buffer = new byte[size];
+            fis.read(buffer);
+            text = new String(buffer);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return text ;
     }
 
 }
