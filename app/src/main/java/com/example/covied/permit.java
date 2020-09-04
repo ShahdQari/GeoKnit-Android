@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -31,7 +32,6 @@ public class permit extends AppCompatActivity {
 
     private static final String TAG = "permit";
     private EditText displayDate , Time1 , Time2 , description;
-    private TextView smsCountTxt;
     private Button Accept;
     private DatePickerDialog.OnDateSetListener dateSetListener;
     int T1Hour , T1Minute , T2Hour , T2Minute;
@@ -111,25 +111,20 @@ public class permit extends AppCompatActivity {
         time(Time1 , T1Hour , T1Minute);
         time(Time2 , T2Hour , T2Minute);
 
-
-        bundle = new Bundle();
         Accept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    String description1 = description.getText().toString();
-                    String Time0 = Time1.getText().toString();
-                    String Time00 = Time2.getText().toString();
-                    String displayDate1 = displayDate.getText().toString();
-                    bundle.putString("Date", displayDate1);
-                    bundle.putString("Time from", Time0);
-                    bundle.putString("Time to", Time00);
-                    bundle.putString("description", description1);
-                    Intent intent = new Intent(permit.this , accept_permit.class);
-                    intent.putExtras(bundle);
-                    startActivity(intent);
+                SharedPreferences sharedPreferences = getSharedPreferences("permit", MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                myEdit.putString("description", description.getText().toString());
+                myEdit.putString("Time from", Time1.getText().toString());
+                myEdit.putString("Time to", Time2.getText().toString());
+                myEdit.putString("Date", displayDate.getText().toString());
+                myEdit.commit();
+                Intent intent = new Intent(permit.this , accept_permit.class);
+                startActivity(intent);
             }
         });
-
     }
 
     public void time(final TextView textView , final int hour , final int minute) {
@@ -168,54 +163,4 @@ public class permit extends AppCompatActivity {
 
 
     }
-
-  /*  @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.counter, menu);
-
-        final MenuItem menuItem = menu.findItem(R.id.counter);
-
-        View actionView = MenuItemCompat.getActionView(menuItem);
-        smsCountTxt = (TextView) actionView.findViewById(R.id.notification_badge);
-
-        setupBadge();
-
-        actionView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onOptionsItemSelected(menuItem);
-            }
-        });
-
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-
-            case R.id.counter: {
-
-                return true;
-            }
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void setupBadge() {
-
-        if (smsCountTxt != null) {
-            if (pendingSMSCount == 0) {
-                if (smsCountTxt.getVisibility() != View.GONE) {
-                    smsCountTxt.setVisibility(View.GONE);
-                }
-            } else {
-                smsCountTxt.setText(String.valueOf(Math.min(pendingSMSCount, 99)));
-                if (smsCountTxt.getVisibility() != View.VISIBLE) {
-                    smsCountTxt.setVisibility(View.VISIBLE);
-                }
-            }
-        }
-    }*/
 }

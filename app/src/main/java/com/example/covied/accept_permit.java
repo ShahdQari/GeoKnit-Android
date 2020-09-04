@@ -1,27 +1,17 @@
 package com.example.covied;
-
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-
-
 public class accept_permit extends AppCompatActivity {
-    ListView listView;
-    Bundle bundle;
-    ArrayList<String> arrayList;
+    TextView permit_ac;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,20 +49,13 @@ public class accept_permit extends AppCompatActivity {
             }
         });
 
-        listView = (ListView) findViewById(R.id.permit_ac);
-        bundle = getIntent().getExtras();
+        permit_ac = findViewById(R.id.permit_ac);
 
-        String displayDate1  = bundle.getString("Date");
-        String Time0 = bundle.getString("Time from");
-        String Time00 = bundle.getString("Time to");
-        String description = bundle.getString("description");
+        SharedPreferences sh = getSharedPreferences("permit", MODE_PRIVATE);
 
-        String all = ("Date: " + displayDate1 + "\nTime from: " + Time0 +
-                "\tTime to: " + Time00 + "\ndescription: " + description);
-
-        arrayList = new ArrayList<>();
-        arrayList.add(all);
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,arrayList);
-        listView.setAdapter(arrayAdapter);
+        permit_ac.setText("Date: " + sh.getString("Date", "")
+                + "\nTime from: " +  sh.getString("Time from", "")
+                + "\nTime to: " + sh.getString("Time to", "")
+                + "\ndescription: " + sh.getString("description", ""));
     }
 }

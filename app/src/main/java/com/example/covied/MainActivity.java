@@ -18,7 +18,7 @@ import com.google.android.gms.tasks.Task;
 
 public class MainActivity extends AppCompatActivity {
     int RC_SIGN_IN = 0;
-    Button signInButton , login , signin;
+    Button signInButton;
     GoogleSignInClient mGoogleSignInClient;
 
 
@@ -29,10 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Initializing Views
         signInButton = (Button) findViewById(R.id.Signin);
-        //login = (Button) findViewById(R.id.login);
-        //signin = (Button) findViewById(R.id.signin);
-
-
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -50,23 +46,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-    /* public void onClick (View view){
-            switch (view.getId()) {
-                case R.id.signInButton:
-                    signIn();
-                    break;
-                case R.id.login:
-                    //Toast.makeText(MainActivity.this, "Failed", Toast.LENGTH_LONG).show();
-                    // startActivity(new Intent(MainActivity.this, signin.class));
-                    break;
-                case R.id.signin:
-                   // Toast.makeText(MainActivity.this, "Failed", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(MainActivity.this, signin.class));
-                    break;
-            }
-        }
-*/
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();

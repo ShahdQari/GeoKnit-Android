@@ -2,7 +2,6 @@ package com.example.covied;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
@@ -10,6 +9,7 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
@@ -93,6 +93,11 @@ public class map extends FragmentActivity implements OnMapReadyCallback,
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
+        SharedPreferences sh = getSharedPreferences("test", MODE_PRIVATE);
+        String test = sh.getString("test" , "");
+
+        if(test.equals("yes")) {
             mMap.addPolygon(new PolygonOptions()
                     .add(
                             new LatLng(21.36887192, 39.80334971),
@@ -124,6 +129,7 @@ public class map extends FragmentActivity implements OnMapReadyCallback,
                     .fillColor(0x33FF0000)
                     .strokeColor(Color.RED)
                     .strokeWidth(1));
+        }
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(this,

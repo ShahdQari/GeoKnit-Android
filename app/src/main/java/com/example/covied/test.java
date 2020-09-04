@@ -6,14 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -77,15 +75,15 @@ public class test extends AppCompatActivity {
         Accept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(fever.isChecked() && cough.isChecked() && tired.isChecked()){
+                if(fever.isChecked() && cough.isChecked() && tired.isChecked()) {
                     if (pain.isChecked() || congestion.isChecked() || headache.isChecked()
-                            ||conjunctivitis.isChecked() || sore_throat.isChecked()
+                            || conjunctivitis.isChecked() || sore_throat.isChecked()
                             || diarrhea.isChecked() || loss.isChecked()
-                            || rash.isChecked() || change.isChecked()){
-                        alert("you are infected" , "yes");
+                            || rash.isChecked() || change.isChecked()) {
+                        alert("you are infected", "yes");
                     }
-
                 }
+
                 else if(fever.isChecked() || cough.isChecked() || tired.isChecked()){
                     if (pain.isChecked() || congestion.isChecked() || headache.isChecked()
                             ||conjunctivitis.isChecked() || sore_throat.isChecked()
@@ -113,9 +111,10 @@ public class test extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Intent intent = new Intent(test.this , profile.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("case", ca);
-                intent.putExtras(bundle);
+                SharedPreferences sharedPreferences = getSharedPreferences("test", MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                myEdit.putString("test", ca);
+                myEdit.commit();
                 startActivity(intent);
             }
         });
